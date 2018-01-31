@@ -29,11 +29,11 @@ icon: save
 author:
   name: TwelveTone LLC
   email: info@twelvetone.tv
-Xhomepage: https://github.com/twelve-tone-llc/grav-plugin-quicksave
+homepage: https://github.com/twelve-tone-llc/grav-plugin-quicksave
 Xdemo: http://demo.yoursite.com
 keywords: grav, plugin, scroll, save, ajax, refresh, fast, quick
-Xbugs: https://github.com/flamenco/grav-plugin-quicksave/issues
-Xdocs: https://github.com/flamenco/grav-plugin-quicksave/blob/develop/README.md
+bugs: https://github.com/flamenco/grav-plugin-quicksave/issues
+docs: https://github.com/flamenco/grav-plugin-quicksave/blob/develop/README.md
 license: MIT
 
 form:
