@@ -42,13 +42,12 @@ See [Official Documentation](https://www.twelvetone.tv/docs/developer-tools/grav
 
 See [Official Documentation](https://www.twelvetone.tv/docs/developer-tools/grav-plugins/grav-quick-save-plugin)
 
-## Credits
-
 ## To Do
 
 - [ ] i8n
 - [ ] hide button if user does not have permission
 - [ ] keyboard shortcut
+- [ ] Create hooks instead of overriding pages.html.twig
 - [X] clear dirty state if only content changed
 
 
