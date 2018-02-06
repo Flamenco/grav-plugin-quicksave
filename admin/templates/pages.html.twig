@@ -35,7 +35,7 @@
         {% do assets.addCss(theme_url~'/css/codemirror/codemirror.css') %}
     {% endif %}
     {#tt#}
-    {% if mode == 'edit' %}
+    {% if exists %}
         {% do assets.addCss('plugins://quicksave/admin/assets/healthy_snackbar.css') %}
     {% endif %}
     {#tt end#}
@@ -43,43 +43,15 @@
 {% endblock %}
 
 {% block javascripts %}
-    {% do assets.addJs('plugins://quicksave/admin/assets/healthy_snackbar.js') %}
+    {#tt#}
+    {% if exists %}
+        {% do assets.addJs('plugins://quicksave/admin/assets/healthy_snackbar.js') %}
+    {% endif %}
+    {#tt end#}
     {{ parent() }}
     {#tt#}
-    {% if mode == 'edit' %}
-        <script>
-            {# simply makes an ajax post with route and editor content #}
-            $(document).ready(function () {
-                var form = $('#saveajax');
-                form.submit(function (e) {
-                    // prevent form submission
-                    e.preventDefault();
-
-                    // submit the form via Ajax
-                    $.ajax({
-                        url: '{{ base_url }}/save-content',
-                        type: 'post',
-                        contentType: "application/json; charset=utf-8",
-                        dataType: 'json',
-                        data: JSON.stringify({
-                            route: "{{ context.rawRoute }}",
-                            content: $('div.form-field:not(.frontmatter) .CodeMirror')[0].CodeMirror.getValue()
-                        }),
-                        success: function (result) {
-                            healthy_snackbar(result.message);
-                            {% if config.plugins.quicksave.clear_dirty %}
-                            // clear the dirty state
-                            const forms = Grav.default.Forms;
-                            forms.FormState.Instance = new forms.FormState.FormState();
-                            {% endif %}
-                        },
-                        error: function (result) {
-                            healthy_snackbar("There was an unexpected error while saving the content.");
-                        }
-                    });
-                });
-            });
-        </script>
+    {% if exists %}
+        {% include 'quicksave_ajax.html.twig' %}
     {% endif %}
     {#tt end#}
 {% endblock %}
@@ -312,7 +284,7 @@
                     {% endif %}
                 {% endif %}
                 {#tt#}
-                {% if mode == 'edit' %}
+                {% if exists %}
                     <span>
                     <form id="saveajax" style="display: inline-block">
                         <button class="button">

@@ -1,0 +1,33 @@
+<script>
+    {# simply makes an ajax post with route and editor content #}
+    $(document).ready(function () {
+        var form = $('#saveajax');
+        form.submit(function (e) {
+            // prevent form submission
+            e.preventDefault();
+
+            // submit the form via Ajax
+            $.ajax({
+                url: '{{ base_url }}/save-content',
+                type: 'post',
+                contentType: "application/json; charset=utf-8",
+                dataType: 'json',
+                data: JSON.stringify({
+                    route: "{{ context.rawRoute }}",
+                    content: $('div.form-field:not(.frontmatter) .CodeMirror')[0].CodeMirror.getValue()
+                }),
+                success: function (result) {
+                    healthy_snackbar(result.message);
+                    {% if config.plugins.quicksave.clear_dirty %}
+                    // clear the dirty state
+                    const forms = Grav.default.Forms;
+                    forms.FormState.Instance = new forms.FormState.FormState();
+                    {% endif %}
+                },
+                error: function (result) {
+                    healthy_snackbar("There was an unexpected error while saving the content.");
+                }
+            });
+        });
+    });
+</script>
