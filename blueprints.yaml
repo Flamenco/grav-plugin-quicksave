@@ -23,17 +23,17 @@
 #
 
 name: Quick Save
-version: 0.1.0
+version: 0.1.1
 description: Save your page content without requiring a refresh or scroll reset.
 icon: save
 author:
   name: TwelveTone LLC
   email: info@twelvetone.tv
-homepage: https://github.com/twelve-tone-llc/grav-plugin-quicksave
+homepage: https://www.twelvetone.tv/docs/developer-tools/grav-plugins/grav-quick-save-plugin
 Xdemo: http://demo.yoursite.com
 keywords: grav, plugin, scroll, save, ajax, refresh, fast, quick
 bugs: https://github.com/flamenco/grav-plugin-quicksave/issues
-docs: https://github.com/flamenco/grav-plugin-quicksave/blob/develop/README.md
+docs: https://www.twelvetone.tv/docs/developer-tools/grav-plugins/grav-quick-save-plugin
 license: MIT
 
 form:
