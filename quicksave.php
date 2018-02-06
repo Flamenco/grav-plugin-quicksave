@@ -84,7 +84,7 @@ class QuicksavePlugin extends Plugin
 
                 $page = $this->grav['pages']->find($route);
                 if (!$page) {
-                    self::result("ERROR", "The target page was not found");
+                    self::result("ERROR", "The target page '$route' was not found");
                 }
 
                 $curContent = $page->rawMarkdown();
