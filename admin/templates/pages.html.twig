@@ -43,21 +43,10 @@
 {% endblock %}
 
 {% block javascripts %}
-    {#tt#}
-    {#{% if mode == 'edit' %}#}
-    {#<script type="module" src="{{ url("plugins://quicksave/admin/assets/healthy_snackbar.js") }}"></script>#}
-    {#{% do assets.addJs('plugins://quicksave/admin/assets/healthy_snackbar.js') %}#}
-    {#{% endif %}#}
     {% do assets.addJs('plugins://quicksave/admin/assets/healthy_snackbar.js') %}
     {{ parent() }}
     {#tt#}
     {% if mode == 'edit' %}
-        {#<script type="module">#}
-        {#import healthy_snackbar from "{{ url("plugins://quicksave/admin/assets/healthy_snackbar.js") }}";#}
-        {#healthy_snackbar("ok")#}
-        {#</script>#}
-        <script>
-        </script>
         <script>
             {# simply makes an ajax post with route and editor content #}
             $(document).ready(function () {
