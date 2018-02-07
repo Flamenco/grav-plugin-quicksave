@@ -54,7 +54,8 @@ class QuicksavePlugin extends Plugin
 
     public function onAdminTwigTemplatePaths($event)
     {
-        $event['paths'] = [__DIR__ . '/admin/templates'];
+        $event['paths'] = array_merge($event['paths'], [__DIR__ . '/admin/templates']);
+        return $event;
     }
 
     public function onPageNotFound($e)
@@ -96,9 +97,9 @@ class QuicksavePlugin extends Plugin
                 $page->save();
 
                 if ($this->grav['config']->get("plugins.quicksave.clear_dirty")) {
-                    
+
                 }
-                
+
                 self::result("OK", "The content was saved.");
                 break;
 
