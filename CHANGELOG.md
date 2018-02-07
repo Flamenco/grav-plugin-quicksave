@@ -5,6 +5,7 @@
     * Update documentation links
     * Update error messages
     * Remove comments from twig
+    * Use array_merge in onAdminTwigTemplatePaths() 
     
 # v0.1.1
 ##  02/05/2018
