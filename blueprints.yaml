@@ -23,7 +23,7 @@
 #
 
 name: Quick Save
-version: 0.1.1
+version: 0.1.2
 description: Save your page content without requiring a refresh or scroll reset.
 icon: save
 author:
