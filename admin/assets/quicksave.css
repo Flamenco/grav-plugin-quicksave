@@ -1,0 +1,6 @@
+.button.multiline {
+    white-space: normal;
+    word-wrap: break-word;
+    font-size: .8em;
+    line-height: 1em;
+}
