@@ -3,6 +3,7 @@
 
 1. [](#new)
     * Add keyboard shortcut to quick save (Shift-Meta-A)
+    * Add CSS for multiline button
     * Add runtime dependency check
     * Use core service manager
     
