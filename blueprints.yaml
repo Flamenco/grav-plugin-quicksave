@@ -60,3 +60,14 @@ form:
       validate:
         type: bool
       help: Clears a page's dirty state after saving content.  This will prevent the "Changes Detected" dialog from appearing when navigating away from a page after changing the content using the plugin's AJAX method.
+
+    enable_keyboard_shortcut:
+      type: toggle
+      label: Enable shift-meta-A to quicksave
+      highlight: 1
+      default: 0
+      options:
+        1: Yes
+        0: No
+      validate:
+        type: bool

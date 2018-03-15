@@ -56,6 +56,69 @@ class QuicksavePlugin extends Plugin
             'onPageNotFound' => ['onPageNotFound', 1],
             'onAdminTwigTemplatePaths' => ['onAdminTwigTemplatePaths', 0],
         ]);
+
+        $manager = ServiceManager::getInstance();
+        $manager->registerService('action', [
+            'render' => function () {
+                return '
+                 <span style="display:inline-block">
+                    <form id="saveajax" style="display: inline-block">
+                        <button class="button multiline">
+                            <i class="fa fa-check-square"></i>Save<br />Content</button>
+                    </form>
+                    <div id="healthy_snackbar"></div>
+                </span>
+                ';
+            },
+            'isEnabled' => function ($context) {
+                return $context && $context->exists();
+            },
+            'scope' => ['page'],
+            'order' => 'last'
+        ]);
+
+        $manager->registerService('asset', [
+            'type' => 'css',
+            'url' => "plugins://quicksave/admin/assets/healthy_snackbar.css",
+            'scope' => ['page'],
+            'order' => 'first'
+        ]);
+
+        $manager->registerService('asset', [
+            'type' => 'javascript',
+            'url' => "plugins://quicksave/admin/assets/healthy_snackbar.js",
+            'scope' => ['page'],
+            'order' => 'first'
+        ]);
+
+        $manager->registerService("asset", [
+            'type' => 'twig',
+            'url' => "quicksave_ajax.html.twig",
+            'scope' => ['page'],
+            'order' => 'last'
+        ]);
+
+        $manager->registerService("asset", [
+            'type' => 'css',
+            'url' => "plugins://quicksave/admin/assets/quicksave.css",
+            'scope' => ['page'],
+            'order' => 'last'
+        ]);
+
+        if ($this->config->get('plugins.quicksave.enable_keyboard_shortcut', false)) {
+            $manager->registerService("asset", [
+                'type' => 'js',
+                'url' => "plugins://quicksave/admin/assets/quicksave_hotkey.js",
+                'scope' => ['page'],
+                'order' => 'first'
+            ]);
+        }
+//        $manager->registerService("key", [
+//            'scope' => ['page'],
+//            'keys' => ['s'],
+//            'modifiers' => ['shift', 'meta'],
+//            'clientCallback' => 'alert("ok")',
+//        ]);
     }
 
     public function onAdminTwigTemplatePaths($event)

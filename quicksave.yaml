@@ -24,3 +24,4 @@
 
 enabled: true
 clear_dirty: true
+enable_keyboard_shortcut: false
