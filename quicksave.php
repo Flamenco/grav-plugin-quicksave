@@ -26,6 +26,8 @@
 namespace Grav\Plugin;
 
 use Grav\Common\Plugin;
+use Twelvetone\Common\DependencyUtil;
+use Twelvetone\Common\ServiceManager;
 
 /**
  * Class QuicksavePlugin
@@ -43,6 +45,10 @@ class QuicksavePlugin extends Plugin
     public function onPluginsInitialized()
     {
         if (!$this->isAdmin()) {
+            return;
+        }
+
+        if (!DependencyUtil::checkDependencies($this)) {
             return;
         }
 
@@ -130,3 +136,4 @@ class QuicksavePlugin extends Plugin
         }
     }
 }
+

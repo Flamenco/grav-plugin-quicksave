@@ -1,3 +1,11 @@
+# v0.1.4
+##  02/06/2018
+
+1. [](#new)
+    * Add keyboard shortcut to quick save (Shift-Meta-A)
+    * Add runtime dependency check
+    * Use core service manager
+    
 # v0.1.3
 ##  02/06/2018
 
