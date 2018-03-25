@@ -1,5 +1,11 @@
+# v0.1.5
+##  03/25/2018
+
+1. [](#new)
+    * Add option to use Shift-Meta-S or Shift-Control-S as the keyboard shortcut
+    
 # v0.1.4
-##  02/06/2018
+##  03/15/2018
 
 1. [](#new)
     * Add keyboard shortcut to quick save (Shift-Meta-A)
