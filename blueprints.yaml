@@ -68,7 +68,20 @@ form:
 
     enable_keyboard_shortcut:
       type: toggle
-      label: Enable shift-meta-A to quicksave
+      label: Use Shift-Meta-S to quicksave
+      highlight: 1
+      default: 0
+      description: Use with versions of Grav Admin Panel >= 1.7.3
+      options:
+        1: Yes
+        0: No
+      validate:
+        type: bool
+
+    enable_keyboard_shortcut_a:
+      type: toggle
+      label: Use Shift-Meta-A to quicksave
+      description: Use with versions of Grav Admin Panel < 1.7.3
       highlight: 1
       default: 0
       options:

@@ -108,7 +108,15 @@ class QuicksavePlugin extends Plugin
         if ($this->config->get('plugins.quicksave.enable_keyboard_shortcut', false)) {
             $manager->registerService("asset", [
                 'type' => 'js',
-                'url' => "plugins://quicksave/admin/assets/quicksave_hotkey.js",
+                'url' => "plugins://quicksave/admin/assets/quicksave_hotkey_s.js",
+                'scope' => ['page'],
+                'order' => 'first'
+            ]);
+        }
+        if ($this->config->get('plugins.quicksave.enable_keyboard_shortcut_a', false)) {
+            $manager->registerService("asset", [
+                'type' => 'js',
+                'url' => "plugins://quicksave/admin/assets/quicksave_hotkey_a.js",
                 'scope' => ['page'],
                 'order' => 'first'
             ]);
