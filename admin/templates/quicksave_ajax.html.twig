@@ -6,6 +6,30 @@
             // prevent form submission
             e.preventDefault();
 
+            var content;
+            // Try the default Grav editor
+            var item = $('div.form-field:not(.frontmatter) .CodeMirror');
+            if (item.length !== 0 && item.is(':visible')) {
+                content = item[0].CodeMirror.getValue();
+            }
+            // Try the hidden field approach
+            if (content === undefined) {
+                item = $('#custom-editor-value');
+                if (item.length !== 0) {
+                    content = item.val();
+                }
+            }
+            // Try another approach
+            if (content === undefined) {
+                item = $('#data\\[content\\]');
+                if (item.length !== 0) {
+                    content = item.val();
+                }
+            }
+            if (content === undefined) {
+                throw "Could not locate an editor content field";
+            }
+
             // submit the form via Ajax
             $.ajax({
                 url: '{{ base_url }}/save-content',
@@ -14,7 +38,7 @@
                 dataType: 'json',
                 data: JSON.stringify({
                     route: "{{ context.rawRoute }}",
-                    content: $('div.form-field:not(.frontmatter) .CodeMirror')[0].CodeMirror.getValue()
+                    content
                 }),
                 success: function (result) {
                     healthy_snackbar(result.message);
