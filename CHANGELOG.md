@@ -1,3 +1,19 @@
+# v0.1.6
+##  04/16/2018
+
+1. [](#new)
+    * Add licensing info to source files
+    * Add support for custom markdown editors
+    
+# v0.1.4
+##  03/15/2018
+
+1. [](#new)
+    * Add keyboard shortcut to quick save (Shift-Meta-A)
+    * Add CSS for multiline button
+    * Add runtime dependency check
+    * Use core service manager
+    
 # v0.1.5
 ##  03/25/2018
 
