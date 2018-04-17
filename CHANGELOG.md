@@ -1,3 +1,9 @@
+# v0.1.7
+##  04/17/2018
+
+1. [](#new)
+    * Remove redundant pages.html.twig override
+
 # v0.1.6
 ##  04/16/2018
 

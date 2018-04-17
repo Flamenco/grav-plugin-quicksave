@@ -47,7 +47,7 @@ See [Official Documentation](https://www.twelvetone.tv/docs/developer-tools/grav
 - [ ] i8n
 - [ ] Hide button if user does not have permission
 - [X] Keyboard shortcut
-- [ ] Create hooks instead of overriding pages.html.twig
+- [X] Create hooks instead of overriding pages.html.twig
 - [X] Do not show button if new page has not been saved
 - [X] Clear dirty state if only content changed
 
