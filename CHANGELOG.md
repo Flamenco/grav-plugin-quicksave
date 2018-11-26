@@ -1,3 +1,9 @@
+# v0.1.8
+##  11/26/2018
+
+1. [](#bugfix)
+    * Do not rely on jQuery when installing the plugin's Javascript
+
 # v0.1.7
 ##  04/17/2018
 
