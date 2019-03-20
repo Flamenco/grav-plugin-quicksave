@@ -1,3 +1,9 @@
+# v0.1.10
+##  3/20/2019
+
+1. [](#bugfix)
+    * Add strict mode syntax
+
 # v0.1.9
 ##  3/20/2019
 
