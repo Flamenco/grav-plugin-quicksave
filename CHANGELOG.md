@@ -1,3 +1,9 @@
+# v0.1.9
+##  3/20/2019
+
+1. [](#feature)
+    * Add support for the TinyMCE plugin
+
 # v0.1.8
 ##  11/26/2018
 
