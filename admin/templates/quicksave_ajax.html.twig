@@ -14,10 +14,10 @@
             }
             
             // Try the TinyMCE Plugin
-            if (tinyMCE && tinyMCE.editors && tinyMCE.editors.length) {
-              const editor = tinyMCE.editors[0]
+            if (window.tinyMCE && window.tinyMCE.editors && window.tinyMCE.editors.length) {
+              const editor = window.tinyMCE.editors[0]
               if (editor.id === 'data[content]'){
-                content = tinyMCE.editors[0].getContent()
+                content = editor.getContent()
               }
             }
             
