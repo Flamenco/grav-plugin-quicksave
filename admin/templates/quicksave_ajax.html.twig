@@ -6,12 +6,21 @@
             // prevent form submission
             e.preventDefault();
 
-            var content;
+            let content;
             // Try the default Grav editor
-            var item = $('div.form-field:not(.frontmatter) .CodeMirror');
+            let item = $('div.form-field:not(.frontmatter) .CodeMirror');
             if (item.length !== 0 && item.is(':visible')) {
                 content = item[0].CodeMirror.getValue();
             }
+            
+            // Try the TinyMCE Plugin
+            if (tinyMCE && tinyMCE.editors && tinyMCE.editors.length) {
+              const editor = tinyMCE.editors[0]
+              if (editor.id === 'data[content]'){
+                content = tinyMCE.editors[0].getContent()
+              }
+            }
+            
             // Try the hidden field approach
             if (content === undefined) {
                 item = $('#custom-editor-value');
@@ -19,6 +28,7 @@
                     content = item.val();
                 }
             }
+            
             // Try another approach
             if (content === undefined) {
                 item = $('#data\\[content\\]');
@@ -26,6 +36,7 @@
                     content = item.val();
                 }
             }
+            
             if (content === undefined) {
                 throw "Could not locate an editor content field";
             }
