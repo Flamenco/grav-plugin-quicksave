@@ -1,3 +1,9 @@
+# v0.1.11
+##  11/6/2019
+
+1. [](#bugfix)
+    * Initialize pages in admin scope
+
 # v0.1.10
 ##  3/20/2019
 
