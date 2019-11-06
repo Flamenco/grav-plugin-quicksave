@@ -149,7 +149,7 @@ class QuicksavePlugin extends Plugin
             case "save-content/":
                 $this->checkPermissions($route);
                 /*
-                 * payload is JSON with {route:"...", content:"..."} 
+                 * payload is JSON with {route:"...", content:"..."}
                  */
                 $rawData = file_get_contents("php://input");
                 $req = json_decode($rawData, true);
@@ -160,7 +160,11 @@ class QuicksavePlugin extends Plugin
                     self::result("ERROR", "The route was not set.");
                 }
 
-                $page = $this->grav['pages']->find($route);
+                // As of Grav 1.7, the pages are not present unless this is called
+                if (method_exists($this->grav['admin'], 'enablePages')) {
+                    $this->grav['admin']->enablePages();
+                }
+                $page = $this->grav['pages']->find($route, true);
                 if (!$page) {
                     self::result("ERROR", "The target page '$route' was not found");
                 }
@@ -174,7 +178,7 @@ class QuicksavePlugin extends Plugin
                 $page->save();
 
                 if ($this->grav['config']->get("plugins.quicksave.clear_dirty")) {
-
+                    //TODO implement clear_dirty
                 }
 
                 self::result("OK", "The content was saved.");
