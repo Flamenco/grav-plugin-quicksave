@@ -177,6 +177,7 @@ class QuicksavePlugin extends Plugin
 
                 $page->content($content);
                 $page->save();
+				$this->grav['core-service-util']->save($page);
 
                 if ($this->grav['config']->get("plugins.quicksave.clear_dirty")) {
                     //TODO implement clear_dirty
