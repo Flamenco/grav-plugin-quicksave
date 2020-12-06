@@ -26,7 +26,6 @@
 namespace Grav\Plugin;
 
 use Grav\Common\Plugin;
-use Twelvetone\Common\DependencyUtil;
 use Twelvetone\Common\ServiceManager;
 
 /**
@@ -48,9 +47,11 @@ class QuicksavePlugin extends Plugin
             return;
         }
 
-        if (!DependencyUtil::checkDependencies($this)) {
+		if (!$this->grav['core-service-util']->checkPluginDependencies($this)) {
             return;
         }
+
+		$this->grav['core-service-util']->checkAllPluginDependencies();
 
         $this->enable([
             'onPageNotFound' => ['onPageNotFound', 1],
