@@ -1,3 +1,9 @@
+# v1.0.13
+##  12/6/2020
+
+1. [](#bugfix)
+    * Check for core dependency
+
 # v1.0.12
 ##  12/6/2020
 
