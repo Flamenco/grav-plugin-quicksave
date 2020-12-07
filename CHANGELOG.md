@@ -1,3 +1,11 @@
+# v1.0.12
+##  12/6/2020
+
+1. [](#bugfix)
+    * Grav v 1.7 compatibility
+    * Use core-service-util for dependency check
+    * Use core-service-util for save
+
 # v0.1.11
 ##  11/6/2019
 
